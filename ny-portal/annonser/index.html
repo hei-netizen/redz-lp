@@ -293,7 +293,7 @@ button:active,.copy:active,.btn:active,.tile:active{transform:scale(.97)}
     <a class="contact" href="mailto:hei@arcads.no">hei@arcads.no</a>
   </div>
 </header>
-<nav class="pnav" aria-label="Kundeportal"><div class="wrap"><a href="/portal/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Hjem</span></a><a href="/oppstart/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg><span>Oppstart</span></a><a href="/portal/rapporter/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Rapporter</span></a><a href="/portal/annonser/" class="on" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Annonser</span></a><a href="/portal/avtale/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><span>Avtale</span></a></div></nav>
+<nav class="pnav" aria-label="Kundeportal"><div class="wrap"><a href="/ny-portal/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Hjem</span></a><a href="/ny-portal/oppstart/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg><span>Oppstart</span></a><a href="/ny-portal/rapporter/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Rapporter</span></a><a href="/ny-portal/annonser/" class="on" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Annonser</span></a><a href="/ny-portal/avtale/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><span>Avtale</span></a></div></nav>
 <main class="wrap">
 <div class="page-h"><span class="eyebrow">Annonser</span><h1>Annonsene deres</h1>
 <p class="lead">Video og bildeannonser vi har laget til dere.</p></div>
@@ -317,10 +317,12 @@ button:active,.copy:active,.btn:active,.tile:active{transform:scale(.97)}
   <section id="sec-nei" style="padding-top:20px" hidden><h2>Ikke godkjent</h2><div class="adgrid" id="g-nei"></div></section>
   <section id="sec-ok" style="padding-top:20px" hidden><h2>Godkjent</h2><div class="adgrid" id="g-ok"></div></section>
 </div>
+<link rel="preconnect" href="https://wzgjpwzyazmchipikotp.supabase.co" crossorigin>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-(()=>{const SB=supabase.createClient('https://wzgjpwzyazmchipikotp.supabase.co','sb_publishable_Q6iWDRC3wtLHEx5gOmQ22w_lIZ45GDX'),SLUG='redz',BEDRIFT='Mokki AS',HOOK='https://hook.eu1.make.com/1arekwfeky6chrxvuop8iiuwwf0gi5bg',SALT='e40927df123c81cbdfd023e6cce91f05',BRO='https://wzgjpwzyazmchipikotp.supabase.co/functions/v1/portal-innlogging';
-const $=i=>document.getElementById(i),esc=s=>String(s??'').replace(/[&<>"]/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x]));
+(()=>{const SB=supabase.createClient('https://wzgjpwzyazmchipikotp.supabase.co','sb_publishable_Q6iWDRC3wtLHEx5gOmQ22w_lIZ45GDX'),SLUG='redz',SALT='e40927df123c81cbdfd023e6cce91f05',BRO='https://wzgjpwzyazmchipikotp.supabase.co/functions/v1/portal-innlogging',BEDRIFT='Mokki AS',HOOK='https://hook.eu1.make.com/1arekwfeky6chrxvuop8iiuwwf0gi5bg';
+const $=i=>document.getElementById(i);
+const esc=s=>String(s??'').replace(/[&<>"]/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x]));
 let ads=[],url={},admin=false;const hjem=new Map();
 const fmt=p=>{const m=p.match(/_(\d+)x(\d+)\./);return m?m[1]+':'+m[2]:'annen'};
 function tittel(n,kort){return n.replace(/\s*\((ny versjon)\)\s*$/,(_,v)=>' <span style="font-weight:500;color:var(--muted)">· '+(kort?'ny':v)+'</span>')}
@@ -345,7 +347,7 @@ function plasser(a,el){const c=el.querySelector('.chip'),k=el.querySelector('.ad
  el.classList.toggle('bred',el.classList.contains('vidrow')&&el.parentNode!==hjem.get(a.id))}
 function tell(){document.querySelectorAll('#seksjoner section').forEach(s=>{s.hidden=!s.querySelector('.ad');s.querySelectorAll('[data-del]').forEach(d=>{const g=d.nextElementSibling;d.hidden=g.hidden=!g.children.length})});
  $('sec-nei').hidden=!$('g-nei').children.length;$('sec-ok').hidden=!$('g-ok').children.length;
- const b=document.querySelector('.pnav a.on .badge, .pnav a[href="/portal/annonser/"] .badge'),n=ads.filter(a=>a.synlig&&a.status==='forslag').length;if(b){b.textContent=n;b.hidden=!n}}
+ const b=document.querySelector('.pnav a.on .badge'),n=ads.filter(a=>a.synlig&&a.status==='forslag').length;if(b){b.textContent=n;b.hidden=!n}}
 async function lagre(a,status,kommentar){const forrige={status:a.status,kommentar:a.kommentar};a.status=status;a.kommentar=kommentar||null;plasser(a,document.querySelector('[data-id="'+a.id+'"]'));tell();
  const{error}=await SB.from('annonser').update({status,kommentar:kommentar||null}).eq('id',a.id);
  if(error){Object.assign(a,forrige);plasser(a,document.querySelector('[data-id="'+a.id+'"]'));tell();alert('Klarte ikke å lagre. Prøv igjen, eller skriv til hei@arcads.no.');return}
@@ -356,7 +358,7 @@ function vis(session){return startet||(startet=last(session).finally(()=>{starte
 async function last(session){$('logginn').hidden=true;
  const{data:b}=await SB.from('brukere').select('rolle,kunde_slug').eq('id',session.user.id).maybeSingle();
  admin=b&&b.rolle==='admin';
- if(!b||(!admin&&b.kunde_slug!==SLUG)){await SB.auth.signOut();return logginn('Denne e-postadressen har ikke tilgang til portalen. Skriv til hei@arcads.no hvis det er feil.')}
+ if(!b||(!admin&&b.kunde_slug!==SLUG))return ingenTilgang();
  const{data,error}=await SB.from('annonser').select('*').eq('kunde_slug',SLUG).order('rekkefolge');
  if(error){$('laster').textContent='Klarte ikke å hente annonsene. Last siden på nytt.';return}
  ads=data;const stier=[...new Set(ads.flatMap(a=>[...a.filer,a.fil_sti,a.poster]).filter(Boolean))];
@@ -366,6 +368,7 @@ async function last(session){$('logginn').hidden=true;
    s.innerHTML='<h2>'+esc(n)+'</h2><h3 data-del style="margin:22px 0 0">Video</h3><div class="g-video"></div><h3 data-del style="margin:26px 0 0">Bildeannonser</h3><div class="adgrid g-bilde"></div>';rot.appendChild(s);sek[n]=s}
   hjem.set(a.id,sek[n].querySelector(a.type==='video'?'.g-video':'.g-bilde'));plasser(a,kort(a))});
  $('adminlinje').hidden=!admin;$('laster').hidden=true;$('innhold').hidden=false;tell()}
+$('loggut').onclick=async e=>{e.preventDefault();await SB.auth.signOut();try{localStorage.removeItem(NOKKEL)}catch(x){}location.reload()};
 /* Passord-bro: samme nøkkel som den gamle portalen (StatiCrypt) lagrer i nettleseren */
 const NOKKEL='staticrypt_passphrase';
 async function pbkdf2(pw,iter,alg){const e=new TextEncoder(),k=await crypto.subtle.importKey('raw',e.encode(pw),'PBKDF2',false,['deriveBits']);
@@ -374,6 +377,8 @@ async function hashPassord(pw){return pbkdf2(await pbkdf2(await pbkdf2(pw,1000,'
 async function bro(hash){try{const r=await fetch(BRO,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slug:SLUG,hash})});
  if(!r.ok)return null;const t=await r.json();const{data,error}=await SB.auth.setSession(t);return error?null:data.session}catch(e){return null}}
 async function fraGammel(){let h=null;try{h=localStorage.getItem(NOKKEL)}catch(e){}return h?bro(h):null}
+function logginn(melding){$('laster').hidden=true;const i=$('innhold');if(i)i.hidden=true;$('logginn').hidden=false;$('logginn-melding').textContent=melding||''}
+async function ingenTilgang(){await SB.auth.signOut();logginn('Denne e-postadressen har ikke tilgang til portalen. Skriv til hei@arcads.no hvis det er feil.')}
 $('f-passord').onsubmit=async e=>{e.preventDefault();$('logginn-melding').textContent='Åpner …';
  const h=await hashPassord($('passord').value),s=await bro(h);
  if(!s){$('logginn-melding').textContent='Feil passord';return}
@@ -382,15 +387,13 @@ $('f-passord').onsubmit=async e=>{e.preventDefault();$('logginn-melding').textCo
 $('til-epost').onclick=e=>{e.preventDefault();$('f-passord').hidden=true;$('f-epost').hidden=false;$('logginn-melding').textContent='';$('epost').focus()};
 $('til-passord').onclick=e=>{e.preventDefault();$('f-epost').hidden=true;$('f-kode').hidden=true;$('f-passord').hidden=false;$('logginn-melding').textContent='';$('passord').focus()};
 let epost='';
-function logginn(melding){$('laster').hidden=true;$('innhold').hidden=true;$('logginn').hidden=false;$('logginn-melding').textContent=melding||''}
 $('f-epost').onsubmit=async e=>{e.preventDefault();epost=$('epost').value.trim().toLowerCase();$('logginn-melding').textContent='Sender …';
  const{error}=await SB.auth.signInWithOtp({email:epost,options:{shouldCreateUser:false,emailRedirectTo:location.origin+location.pathname}});
  if(error){$('logginn-melding').textContent=/signups|not found|Signups/i.test(error.message)?'Denne e-postadressen har ikke tilgang. Skriv til hei@arcads.no.':'Noe gikk galt: '+error.message;return}
  $('sendt-til').textContent=epost;$('f-epost').hidden=true;$('f-kode').hidden=false;$('logginn-melding').textContent='';$('kode').focus()};
 $('f-kode').onsubmit=async e=>{e.preventDefault();const{data,error}=await SB.auth.verifyOtp({email:epost,token:$('kode').value.trim(),type:'email'});
  if(error){$('logginn-melding').textContent='Koden stemmer ikke, eller den har gått ut. Prøv igjen.';return}vis(data.session)};
-$('loggut').onclick=async e=>{e.preventDefault();await SB.auth.signOut();try{localStorage.removeItem(NOKKEL)}catch(x){}location.reload()};
-SB.auth.onAuthStateChange((ev,s)=>{if(ev==='SIGNED_IN'&&s&&$('innhold').hidden)vis(s)});
+SB.auth.onAuthStateChange((ev,s)=>{if(ev==='SIGNED_IN'&&s&&!$('logginn').hidden)vis(s)});
 SB.auth.getSession().then(async({data:{session}})=>{if(session)return vis(session);const s=await fraGammel();s?vis(s):logginn()});
 })();
 </script>
@@ -434,7 +437,7 @@ document.addEventListener('click',e=>{
   },0);
 });
 /* teller på Annonser-fanen */
-const fane=document.querySelector('.pnav a[href="/portal/annonser/"]');
+const fane=document.querySelector('.pnav a[href="/ny-portal/annonser/"]');
 if(fane){const t=document.createElement('span');t.className='badge';t.hidden=true;fane.appendChild(t);
   Promise.all([fetch('/portal/annonser/ider.json').then(r=>r.json()),fetch('https://hook.eu1.make.com/1arekwfeky6chrxvuop8iiuwwf0gi5bg?handling=hent&kunde='+location.hostname.split('.')[0]).then(r=>r.json()).catch(()=>({}))])
   .then(([ider,st])=>{const n=ider.filter(i=>!st[i]).length;if(n){t.textContent=n>99?'99+':n;t.hidden=false;t.setAttribute('aria-label',n+' venter på svar')}}).catch(()=>{});}

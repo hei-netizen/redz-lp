@@ -313,6 +313,7 @@ button:active,.copy:active,.btn:active,.tile:active{transform:scale(.97)}
 </div>
 <div id="innhold" hidden>
   <div class="adminlinje" id="adminlinje" hidden><span><b>Admin-visning.</b> Du ser portalen slik kunden ser den, pluss skjulte annonser. Det du godkjenner her, sendes ikke til Make.</span><a href="#" id="loggut">Logg ut</a></div>
+  <p id="tomt" class="lead" hidden>Nye annonser kommer her snart.</p>
   <div id="seksjoner"></div>
   <section id="sec-nei" style="padding-top:20px" hidden><h2>Ikke godkjent</h2><div class="adgrid" id="g-nei"></div></section>
   <section id="sec-ok" style="padding-top:20px" hidden><h2>Godkjent</h2><div class="adgrid" id="g-ok"></div></section>
@@ -367,7 +368,7 @@ async function last(session){$('logginn').hidden=true;
  ads.forEach(a=>{const n=a.seksjon||'Annonser';if(!sek[n]){const s=document.createElement('section');s.style.paddingTop='20px';
    s.innerHTML='<h2>'+esc(n)+'</h2><h3 data-del style="margin:22px 0 0">Video</h3><div class="g-video"></div><h3 data-del style="margin:26px 0 0">Bildeannonser</h3><div class="adgrid g-bilde"></div>';rot.appendChild(s);sek[n]=s}
   hjem.set(a.id,sek[n].querySelector(a.type==='video'?'.g-video':'.g-bilde'));plasser(a,kort(a))});
- $('adminlinje').hidden=!admin;$('laster').hidden=true;$('innhold').hidden=false;tell()}
+ $('tomt').hidden=ads.some(a=>a.synlig);$('adminlinje').hidden=!admin;$('laster').hidden=true;$('innhold').hidden=false;tell()}
 $('loggut').onclick=async e=>{e.preventDefault();await SB.auth.signOut();try{localStorage.removeItem(NOKKEL)}catch(x){}location.reload()};
 /* Passord-bro: samme nøkkel som den gamle portalen (StatiCrypt) lagrer i nettleseren */
 const NOKKEL='staticrypt_passphrase';
